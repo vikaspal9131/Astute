@@ -225,16 +225,18 @@ function getWebviewContent(): string {
 }
 
 .chat-container {
-    width: 50vw; 
+    width: 700px; 
     height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+   
  
 }
 
 .input-area {
-    height: 100px;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -255,11 +257,12 @@ input {
   resize: none;  /* Prevents resizing, remove if you want users to resize */
   overflow-wrap: break-word; /* Ensures text wraps */
   white-space: pre-wrap;
-  
   outline: none;
-  
+}
 
- 
+input:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 
@@ -271,29 +274,34 @@ button {
     margin-left: 5px;
     font-size: 20px;
     background: none;
-    /* background: white; */
+    color: white;
+    padding: 10px 20px;
+    background:#336AEA;
+
 }
 
 button img{
   width: 30px;
 }
+.res {
+  height: 80%;
+  padding: 30px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  color: white; 
+   
+}
 
 .heading{
-  color: white;
+  color: rgb(207, 198, 198);
   text-align: center;
   margin-bottom: 30px;
   line-height: 15px;
+  position: absolute;
+  bottom: 90px
 }
 
-.res {
-  padding: 30px;
-  height: 80%;
-  margin-bottom: 30px;
-  font-size: 20px;
-  color: white;
-  overflow-y: auto;  /* E;
-  /* Optional: Adds a subtle border for clarity */
-}
+
 
 
 
@@ -304,26 +312,27 @@ button img{
 img{
   width: 65px;
 }
+
+      
+        
    </style>
    
 </head>
 <body>
     <div class="chat-container">
         <div class="res" id="response">
-         
- 
+          
         </div>
-        
         <div class="heading">
-            <img src="water_5019871.png" alt="">
             <h1>Welcome to Enzo Chat! ✨</h1>
-            <p>Ask me anything, and I'll provide insightful responses  powered by DeepSeek AI. I’m here to assist you! 🚀</p>
+            <p>  Ask me anything, and I'll provide insightful responses  powered by DeepSeek AI. I’m here to assist you! </p>
+            
         </div>
         <div class="input-area">
             <input id="prompt" type="text" placeholder="Type your message" autocomplete="off" >
          
             <button id="askBtn">
-                <img src="send.png" alt="">
+               send
             </button>
         </div>
     </div>
@@ -331,23 +340,30 @@ img{
 
 <script>
     const vscode = acquireVsCodeApi();
+
+    document.getElementById('prompt').addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        document.getElementById('askBtn').click();  // Simulate button click
+    }
+});
+
     document.getElementById('askBtn').addEventListener('click', () => {
         document.querySelector('.heading').style.display = "none";
         const text = document.getElementById('prompt').value;
         vscode.postMessage({ command: 'chat', text }); 
     });
 
-    // Listen for messages from the extension and update the response
+ 
     window.addEventListener('message', event => {
         const { command, text } = event.data;
         if (command === 'chatResponse') {
-            // Update the response container with the new text
+          
             document.getElementById('response').innerText = text; 
         }
     });
 </script>
 </html>
-`;
+` ;
 }
 
 export function deactivate() {}
