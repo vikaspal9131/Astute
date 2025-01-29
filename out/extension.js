@@ -199,7 +199,6 @@ function getWebviewContent() {
     return `<!DOCTYPE html>
 <html lang="en">
 <head> 
-   <link rel="stylesheet" href="text.css">
    
    <style>
      body {
@@ -214,10 +213,15 @@ function getWebviewContent() {
 
 .chat-container {
     width: 50vw; 
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+ 
 }
 
 .input-area {
-     height: 80px;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -238,56 +242,76 @@ input {
   resize: none;  /* Prevents resizing, remove if you want users to resize */
   overflow-wrap: break-word; /* Ensures text wraps */
   white-space: pre-wrap;
+  
   outline: none;
+  
 
-  /* background: red;; */
+ 
 }
 
 
 button { 
-    padding: 10px 20px;
+    padding: 7px ;
     border: none;
-    background: #0066ff;
-    color: rgb(255, 253, 253);
     cursor: pointer;
     border-radius: 20px;
-   
     margin-left: 5px;
     font-size: 20px;
+    background: none;
+    /* background: white; */
 }
 
-
-.res{
-  width: 100%;
-  height: 400px;
-  margin-bottom: 30px;
-  padding: 20px;
-  font-size: 20px;
-  color: white;
+button img{
+  width: 30px;
 }
 
 .heading{
   color: white;
   text-align: center;
-  
+  margin-bottom: 30px;
+  line-height: 15px;
+}
+
+.res {
+  padding: 30px;
+  height: 80%;
+  margin-bottom: 30px;
+  font-size: 20px;
+  color: white;
+  overflow-y: auto;  /* E;
+  /* Optional: Adds a subtle border for clarity */
+}
+
+
+
+.res::-webkit-scrollbar {
+  display: none;
+}
+
+img{
+  width: 65px;
 }
    </style>
+   
 </head>
 <body>
     <div class="chat-container">
         <div class="res" id="response">
-  
+         
+ 
         </div>
         
         <div class="heading">
-            <img src="" alt="">
-            <h1>Welcome to DeepSeek Chat! ✨</h1>
+            <img src="water_5019871.png" alt="">
+            <h1>Welcome to Enzo Chat! ✨</h1>
             <p>Ask me anything, and I'll provide insightful responses  powered by DeepSeek AI. I’m here to assist you! 🚀</p>
         </div>
         <div class="input-area">
-            <input id="prompt" type="text">
+            <input id="prompt" type="text" placeholder="Type your message" autocomplete="off" >
          
-            <button id="askBtn">Send</button>
+            <button id="askBtn">
+                <img src="send.png" alt="">
+            </button>
         </div>
     </div>
 </body>
