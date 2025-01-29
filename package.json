@@ -1,6 +1,6 @@
 {
-  "name": "enzo",
-  "displayName": "Enzo",
+  "name": "astute",
+  "displayName": "Astute",
   "description": "deepseek vs code extention",
   "version": "0.0.1",
   "engines": {
@@ -14,8 +14,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "enzo.helloWorld",
-        "title": "Hello World"
+        "command": "Astute.Astute",
+        "title": "Astute Start"
       }
     ]
   },
