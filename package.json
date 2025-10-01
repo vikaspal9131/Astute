@@ -2,7 +2,7 @@
   "name": "astute",
   "displayName": "Astute",
   "description": "deepseek vs code extension",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publisher": "VikasPal",
   "type": "module",
   "icon": "assets/icon.png",
