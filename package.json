@@ -2,17 +2,16 @@
   "name": "astute",
   "displayName": "Astute",
   "description": "deepseek vs code extension",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "VikasPal",
   "type": "module",
   "engines": {
     "vscode": "^1.96.0"
   },
   "repository": {
-  "type": "git",
-  "url": "https://github.com/vikaspal9131/Astute.git"
-},
-
+    "type": "git",
+    "url": "https://github.com/vikaspal9131/Astute.git"
+  },
   "categories": [
     "Other"
   ],
