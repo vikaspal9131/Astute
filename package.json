@@ -5,6 +5,7 @@
   "version": "1.0.2",
   "publisher": "VikasPal",
   "type": "module",
+  "icon": "assets/icon.png",
   "engines": {
     "vscode": "^1.96.0"
   },
